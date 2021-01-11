@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <title>Exercicios HTML</title>
+</head>
+<body>
+    <!-- ATENÇÃO: A pagina so funciona com o servidor do nodeJS -->
+    <header>
+        <p>Exercicios HTML</p>
+    </header>
+    <nav>
+        <p>
+        <a href="exercicios/testando.html">00 - TESTE</a>//
+        <a href="exercicios/texto1.html">01 - TEXTO 1</a>//
+        <a href="exercicios/texto2.html">02 - TEXTO 2</a>//
+        <a href="exercicios/listas.html">03 - LISTA</a>//
+        <a href="exercicios/listaAninhada.html">04 - LISTA ANINHADA</a>//
+        <a href="exercicios/links.html">05 - LINKS</a>//
+        <a href="exercicios/tabela.html">06 - TABELA</a>//
+        <a href="exercicios/formulario/form.html">07 - FUMULARIO</a>//
+        <a href="exercicios/imagens.html">08 - IMAGENS</a>//
+
+        </p>
+
+    </nav>
+    <section id="conteudo"></section>
+    <footer>
+        <p>Curso Web Moderno. Profº Leonardo Moura</p>
+    </footer>
+    <script>
+        document.querySelectorAll('a').forEach(link =>{
+            link.onclick = function(e){
+                e.preventDefault()
+                const conteudo = document.getElementById('conteudo')
+                fetch(link.href)
+                    .then(resp => resp.text())
+                    .then(html => conteudo.innerHTML = html)
+            }
+        })
+    </script>
+</body>
+</html>
